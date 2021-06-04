@@ -1,51 +1,56 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    char string[100];
+    char sentence[100];
     char word[100];
-    int a = 0, b = 0, i, j, k, c, d = 0;
-
+    int sentenceLength = 0;
+    int wordLength = 0;
+    int wordCount = 0;
+    int sentencePointer, characterCounter;
 
     printf("Please enter the sentence\n");
-    gets(string);
+    gets(sentence);
 
     printf("Please enter the word\n");
     gets(word);
 
-    while (string[a] != '\0')
+    while (sentence[sentenceLength] != '\0')
     {
-        a++;
+        sentenceLength++;
     }
 
-    while (word[b] != '\0')
+    while (word[wordLength] != '\0')
     {
-        b++;
+        wordLength++;
     }
 
-    for (i = 0; i < a; i++)
+    for (int i = 0; i < sentenceLength; i++)
     {
-        k = i;
-        c = 0;
-        for (j = 0; j < b; j++)
+        sentencePointer = i;
+        characterCounter = 0;
+
+        for (int j = 0; j < wordLength; j++)
         {
-            if (string[k] == word[j])
+            if (sentence[sentencePointer] == word[j])
             {
-                c++;
-                k++;
-
+                sentencePointer++;
+                characterCounter++;
             }
+            else
+                break;
         }
-        if (c == j)
+
+        if (characterCounter == wordLength)
         {
             printf("Sentence contains that word\n");
-            printf("[%d-%d] \n", k - j + 1, k);
-            d++;
+            printf("[%d-%d]\n", sentencePointer - wordLength + 1, sentencePointer);
+            wordCount++;
         }
 
     }
-    if (d == 0)
+
+    if (!wordCount)
         printf("Sentence does not contain that word\n");
 
     return 0;
