@@ -6,7 +6,7 @@ int main()
     char word[100];
     int sentenceLength = 0;
     int wordLength = 0;
-    int wordCount = 0;
+    int wordCounter = 0;
     int sentencePointer, characterCounter;
 
     printf("Please enter the sentence\n");
@@ -45,12 +45,12 @@ int main()
         {
             printf("Sentence contains that word\n");
             printf("[%d-%d]\n", sentencePointer - wordLength + 1, sentencePointer);
-            wordCount++;
+            wordCounter++;
         }
 
     }
 
-    if (!wordCount)
+    if (!wordCounter)
         printf("Sentence does not contain that word\n");
 
     return 0;
